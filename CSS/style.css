@@ -1,0 +1,672 @@
+/* ---- Reset ----- */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Lato, sans-serif;
+  color: #000;
+}
+
+h1,
+h2,
+h3 {
+
+  font-family: Nunito, sans-serif;
+  cursor: default;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 3em;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0;
+  padding: 0 0 50px 0;
+}
+
+h1 span {
+  display: block;
+  font-size: 0.6em;
+  color: #38356B;
+  font-style: italic;
+  font-family: Lato, sans-serif;
+  text-transform: none;
+  font-weight: 300;
+
+}
+
+h1 span.nat {
+  display: block;
+  font-size: 0.3em;
+  color: #38356B;
+  font-style: italic;
+  font-family: Lato, sans-serif;
+  text-transform: none;
+  margin-top: 15px;
+}
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  /* text-transform: uppercase; */
+
+
+}
+
+a {
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #57CAEF;
+  text-decoration: none;
+}
+
+a:focus {
+  color: #57CAEF;
+  text-decoration: none;
+}
+
+p {
+  line-height: 2;
+}
+
+.btn {
+  background: transparent;
+  border: 2px solid #38356B;
+  color: #38356B;
+  border-radius: 50px;
+  padding: 8px 30px;
+  font-family: Nunito, sans-serif;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #38356B;
+  color: #fff;
+}
+
+.mtop50 {
+  margin-top: 50px;
+}
+
+/* ---- header ---- */
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 30px 50px;
+  text-transform: uppercase;
+  font-family: Nunito, sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: right;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 0.5s;
+}
+
+header.fix-white {
+  background: #fff;
+  border-bottom: 1px solid #fff;
+  padding: 15px 50px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+header.fix-white a {
+  color: #000;
+}
+
+header.fix-white a:hover {
+  color: #57CAEF;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+header li {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+header a {
+  color: #fff;
+}
+
+.current a {
+  color: #57CAEF !important;
+}
+
+/* --- Header layout --- */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-text {
+  color: white;
+  font-weight: 700;
+  font-size: 1.3em;
+  font-family: Nunito, sans-serif;
+}
+
+/* --- Burger icon --- */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger span {
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+header.fix-white span {
+  background: #000;
+}
+
+header.fix-white .logo-text {
+  color: #000;
+}
+
+/* --- Desktop menu --- */
+#nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* --- Mobile menu overlay --- */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  #nav-links {
+    display: none;
+    padding-top: 100px;
+  }
+
+  #nav-links.show {
+    display: flex;
+    flex-direction: column; /* ✅ stack items vertically */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0; /* full screen */
+    background: black;
+    z-index: 1000;
+    gap: 35px;
+    opacity: 1;
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  #nav-links li {
+    display: block;
+    text-align: center;
+  }
+
+  #nav-links a {
+    color: #fff;
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  #nav-links a:hover {
+    color: #57CAEF;
+  }
+
+  /* Burger → X animation */
+  .burger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+  /* Smooth fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+
+/* ---- Accueil ---- */
+
+#home {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home h1 {
+  margin: 0;
+  padding: 0;
+
+}
+
+.logo {
+  font-family: Nunito, sans-serif;
+  font-size: 3em;
+  color: #fff;
+  text-shadow: 0 15px 15px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+}
+
+
+.go {
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  left: calc(50% - 25px);
+  bottom: 50px;
+  text-align: center;
+  color: #fff;
+  border-radius: 50px;
+  padding-top: 2px;
+  font-size: 2em;
+}
+
+.go:hover {
+  background: #fff;
+}
+
+/* ---- A Propos ---- */
+
+#apropos {
+  padding: 100px 0;
+}
+
+#apropos p {
+  text-align: justify;
+  font-size: large;
+}
+
+.icon {
+  text-align: center;
+}
+
+.icon i {
+  color: #38356B;
+  font-size: 4em;
+  padding-bottom: 1em;
+}
+
+#apropos .btn:hover {
+  background: #57caef;
+  color: #fff;
+  border: 2px solid #57caef;
+
+}
+
+/* ---- Equipe ---- */
+
+#equipe {
+  background: #000;
+  padding: 100px 0;
+}
+
+#equipe h1 {
+  color: #fff;
+}
+
+#equipe h1 span {
+  color: #57caef;
+}
+
+
+.card {
+  position: relative;
+  height: 375px;
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+.card:hover {
+  opacity: 1;
+}
+
+.card-06 {
+  background: #fff url(../img/Celia.jpeg) center center no-repeat;
+  background-size: cover;
+}
+
+.card-05 {
+  background: #fff url(../img/dog.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.card-01 {
+  background: #fff url(../img/natalia.png) center center no-repeat;
+  background-size: cover;
+}
+
+.card-02 {
+  background: #fff url(../img/aline.png) center center no-repeat;
+  background-size: cover;
+}
+
+.card-03 {
+  background: #fff url(../img/anael.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.card-04 {
+  background: #fff url(../img/Quentin.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.card-07 {
+  background: #fff url(../img/nabila.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.card-08 {
+  background: #fff url(../img/nolwenn.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.card-09 {
+  background: #fff url(../img/jean-yves.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+
+.card h2 {
+  position: absolute;
+  color: #fff;
+  left: 0;
+  top: 200px;
+  opacity: 0;
+  transition: top 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+  font-family: Nunito, sans-serif;
+  text-transform: none;
+  font-size: 2em;
+  transform: rotate(-3deg) skew(-10deg);
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8);
+}
+
+.card:hover h2 {
+  top: 320px;
+  opacity: 1;
+  transform: rotate(0deg) skew(0deg);
+}
+
+
+
+#equipe p {
+  text-align: center;
+  color: #fff;
+  font-size: large;
+  font-family: Lato, sans-serif;
+  font-weight: 600;
+  margin-top: 20px;
+  /* text-transform: uppercase; */
+}
+
+/* ---- devise ---- */
+
+#devise {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+#devise p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: Lato, sans-serif;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+  font-size: 2.5em;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -1px;
+  cursor: default;
+}
+
+
+/* ---- person section theme ---- */
+
+.person-section {
+  padding: 100px 0;
+}
+
+.person-section p {
+  text-align: justify;
+  font-size: large;
+}
+
+.person-section h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 1em;
+  text-transform: none;
+
+}
+
+.person-section li {
+  list-style: square;
+  line-height: 2em;
+  font-size: large;
+}
+
+.person-section ul {
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  margin: 1rem 0;
+  padding: 2rem;
+}
+
+.person-section ul li {
+  margin-bottom: 0.5rem;
+  break-inside: avoid;               /* ✅ prevents splitting */
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+}
+
+@media (max-width: 800px) {
+  .person-section ul {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+  }
+}
+
+
+/* ---- light theme ---- */
+
+.light-theme h1 span {
+  color: #57caef;
+}
+
+.light-theme .btn:hover {
+  background: #57caef;
+  color: #fff;
+  border: 2px solid #57caef;
+
+}
+
+/* ---- dark theme ---- */
+
+.dark-theme {
+  background: #000;
+}
+
+.dark-theme h1 {
+  color: #fff;
+}
+
+.dark-theme h1 span {
+  color: #57caef;
+}
+
+.dark-theme p {
+  text-align: justify;
+  color: #fff;
+}
+
+.dark-theme li {
+  color: #fff;
+}
+
+.dark-theme h2 {
+  color: #fff;
+}
+
+.dark-theme .btn {
+  background: transparent;
+  border: 2px solid #57caef;
+  color: #57caef;
+  border-radius: 50px;
+  padding: 8px 30px;
+  font-family: Nunito, sans-serif;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.dark-theme .btn:hover {
+  background: #57caef;
+  color: #fff;
+}
+
+/* ---- Natalia fond blanc ---- */
+
+
+@media screen and (max-width: 900px) {
+  .mobile-break::before {
+    content: "\A";
+    /* Line break */
+    white-space: pre;
+  }
+
+  .person-section ul {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+  }
+}
+
+
+/* ---- contact ---- */
+
+#contact h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: x-large;
+}
+
+#contact p {
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 1.3em;
+
+}
+
+#contact a {
+  display: block;
+  font-size: 1.3em;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+#contact .col-md-6 {
+  height: 250px;
+}
+
+
+/* ---- adresse ---- */
+
+#adresse {
+  padding: 100px 0;
+  width: 100%;
+
+}
+
+#adresse p {
+  text-align: justify;
+}
+
+#adresse p {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+
+#adresse a {
+  margin-left: 48%;
+  margin-top: 25px;
+  font-size: 2em;
+  text-align: center;
+  transition: 0.2s;
+
+}
+
+#adresse a:hover {
+  font-size: 3em
+}
+
+#maps-container {
+  width: 100%;
+  /* margin: auto; */
+  text-align: center;
+
+
+}
+
+#maps-container iframe {
+  width: 80%;
+  height: 500px;
+  max-width: 100%;
+}
