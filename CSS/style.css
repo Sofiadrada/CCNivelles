@@ -426,7 +426,7 @@ header.fix-white .logo-text {
   font-family: Nunito, sans-serif;
   text-transform: none;
   font-size: 2em;
-  transform: rotate(-3deg) skew(-10deg);
+  transform: rotate(-6deg) skew(-10deg);
   text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8);
 }
 
